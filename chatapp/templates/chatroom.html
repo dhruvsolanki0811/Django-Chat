@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="tag">
+{{message}}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if room %}
+<div>
+{{ room.name }}
+</div>
+
+
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="message" id='message-input' placeholder="Enter Message" >
+    <button type="submit" id="send-btn"> Send</button>
+</form>
+
+{% endif %}
+{{ room.slug|json_script:"json-chatroomname" }}
+<script>
+    const chatRoomName = JSON.parse(document.getElementById('json-chatroomname').textContent)
+    const chatSocket = new WebSocket("ws://" + window.location.host + "/ws/"+chatRoomName+'/');
+      chatSocket.onopen = function (e) {
+        console.log("The connection was setup successfully !");
+      };
+      chatSocket.onclose = function (e) {
+        console.log("Something unexpected happened !");
+      };
+      document.getElementById('send-btn').onclick=(e)=>{
+        e.preventDefault()
+        const messageInput=document.getElementById('message-input')
+        const message=messageInput.value
+        c
+
+      }
+</script>
+
+{% endblock %}
