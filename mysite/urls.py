@@ -17,8 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from chatapp import views as chatviews
+from account import views as accountviews
+from django.contrib.auth import views as auth_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',chatviews.index,name='home'),
-    path('room/<slug:slug>',chatviews.roomview,name='room')
+    path('room/<slug:slug>',chatviews.roomview,name='room'),
+    path('register/',accountviews.register,name='register'),
+    path('login/',auth_views.LoginView.as_view(template_name='login.html'),name='login'),
+    path('logout/',auth_views.LogoutView.as_view(template_name='logout.html'),name='logout')
+
 ]

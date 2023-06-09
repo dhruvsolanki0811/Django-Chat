@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'daphne',
+    'account.apps.AccountConfig',
     'chatapp.apps.ChatappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -131,3 +132,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# login urls
+LOGIN_REDIRECT_URL='home'
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL='login'

@@ -1,0 +1,35 @@
+{% extends 'authbase.html' %}
+
+{% block body %}
+ {% if messages %}
+    {% for message in messages %}
+
+    <div class="alert alert-{{ message.tags }}">
+        
+    {{message}}
+    </div>
+    {% endfor%}
+    {% endif %} 
+
+    <div class="d-flex justify-content-center pt-4">
+        <form method="post" class="" >
+
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group ">
+            {{field.name}}
+                {{field}}
+        </div>
+        {% if field.errors %}
+        <div class="error-message">
+            {% for error in field.errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endfor %}
+            <button type="submit">submit</button>
+        </div>
+        </form>
+    </div>
+{% endblock %}
