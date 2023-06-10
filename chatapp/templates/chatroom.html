@@ -53,7 +53,7 @@ Welcome {{request.user.username}} to {{ room.name }}
   );
 
   const chatSocket = new WebSocket(
-    "ws://" + window.location.host + "/wss/" + chatRoomName + "/"
+    "wss://" + window.location.host + "/ws/" + chatRoomName + "/"
   );
 
   chatSocket.onmessage= function (e) {
