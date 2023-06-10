@@ -28,6 +28,12 @@ SECRET_KEY = 'django-insecure-c2d%be6*(d(zw=1#vs#$j1fc3x63n8n3)at5%n-t_g0*!9jn3-
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = [
+    'https://django-chat-2dwi.onrender.com/'
+]
+CORS_ORIGIN_WHITELIST = [
+    'https://django-chat-2dwi.onrender.com/'
+]
 
 
 # Application definition
