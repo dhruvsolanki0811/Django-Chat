@@ -1,4 +1,5 @@
 import os, django
+from django.conf.urls import url
 
 from django.core.asgi import get_asgi_application
 
@@ -9,6 +10,7 @@ from chatapp import routing
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myApp.settings')
 django.setup()
+django_asgi_app = get_asgi_application()
 
 
 
