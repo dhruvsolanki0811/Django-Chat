@@ -29,10 +29,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = [
-    'https://django-chat-2dwi.onrender.com/'
+    'https://django-chat-2dwi.onrender.com'
 ]
 CORS_ORIGIN_WHITELIST = [
-    'https://django-chat-2dwi.onrender.com/'
+    'https://django-chat-2dwi.onrender.com'
 ]
 
 
